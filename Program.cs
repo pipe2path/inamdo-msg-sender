@@ -1,50 +1,43 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace inamdo_msg_sender
+namespace InamdoMsgSender
 {
     class Program
     {
         private static Timer timer;
+        private static readonly HttpClient client = new HttpClient();
         static void Main(string[] args)
         {
-            var timerState = new TimerState { Counter = 1 };
+            var userTask = getUsers();
 
-            timer = new Timer(
-                callback: new TimerCallback(TimerTask),
-                state: timerState,
-                dueTime: 1000,
-                period: 2000);
-
-            while (timerState.Counter >= 1)
-            {
-                Task.Delay(1000).Wait();
-            }
-
-            timer.Dispose();
-            Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff}: done.");
+            userTask.ContinueWith(task => {
+                var users = task.Result;
+                foreach (User u in users)
+                    Console.WriteLine(u.userName.ToString());
+                
+            },
+            TaskContinuationOptions.OnlyOnRanToCompletion);
+            Console.ReadLine();
         }
 
-        private static void TimerTask(object timerState)
+        static async Task<IEnumerable<User>> getUsers() 
         {
-            if (DateTime.Now.Hour == 22)
-            {
-                //Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff}: starting a new callback.");
-                //var state = timerState as TimerState;
-                //Interlocked.Increment(ref state.Counter);
+            string path = "http://localhost:56362/api/users/couponlist";
+            //await Task.Delay(3000);
 
-                // need to pull in the user coupon list and send message
-
-
-
-
-            }
+            var response = await client.GetAsync(path);
+            response.EnsureSuccessStatusCode();
+            var stringResult = await response.Content.ReadAsStringAsync();
+            IEnumerable<User> users = JsonConvert.DeserializeObject<IEnumerable<User>>(stringResult);
+            return users;
         }
-
-        class TimerState
-        {
-            public int Counter;
-        }
+        
+        
     }
 }

@@ -1,0 +1,11 @@
+C:\code\vs\inamdo-msg-sender\bin\Debug\netcoreapp2.1\inamdo-msg-sender.deps.json
+C:\code\vs\inamdo-msg-sender\bin\Debug\netcoreapp2.1\inamdo-msg-sender.runtimeconfig.json
+C:\code\vs\inamdo-msg-sender\bin\Debug\netcoreapp2.1\inamdo-msg-sender.runtimeconfig.dev.json
+C:\code\vs\inamdo-msg-sender\bin\Debug\netcoreapp2.1\inamdo-msg-sender.dll
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.csproj.CoreCompileInputs.cache
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.AssemblyInfoInputs.cache
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.AssemblyInfo.cs
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.csprojAssemblyReference.cache
+C:\code\vs\inamdo-msg-sender\bin\Debug\netcoreapp2.1\inamdo-msg-sender.pdb
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.dll
+C:\code\vs\inamdo-msg-sender\obj\Debug\netcoreapp2.1\inamdo-msg-sender.pdb
