@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Sinch.ServerSdk" Version="1.2.3" />
   </ItemGroup>
 
 </Project>
